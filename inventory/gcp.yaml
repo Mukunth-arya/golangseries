@@ -1,0 +1,14 @@
+---
+plugin: gcp_compute
+projects:
+          - kuberpro-336213
+auth_kind: serviceaccount
+service_account_file: /root/ansible/inventory/myfile.json
+keyed_groups:
+  - key: labels
+    prefix: label
+  - key: zone
+    prefix: zone
+groups:
+  remote: "'my1' in (labels|list)"
+...
